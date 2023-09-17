@@ -22,4 +22,7 @@ public:
     void get_radio();
     void image();
     void page();
+
+private:
+    void* artist;
 };

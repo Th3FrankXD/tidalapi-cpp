@@ -19,4 +19,7 @@ public:
     void get_artists();
     void get_album();
     void get_type();
+
+private:
+    void* media;
 };

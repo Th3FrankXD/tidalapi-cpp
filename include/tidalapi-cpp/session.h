@@ -6,7 +6,7 @@
 
 class Session {
 public:
-    Session(Config config=Config());
+    Session(Config config);
 
     char* get_session_id();
 
@@ -44,9 +44,12 @@ public:
     void search();
 
     void get_quality();
-    void get video_quality();
+    void get_video_quality();
     void set_quality();
     void set_video_quality();
 
     void get_country_code();
+
+private:
+    void* session;
 };

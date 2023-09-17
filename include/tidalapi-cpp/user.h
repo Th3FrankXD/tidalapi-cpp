@@ -5,6 +5,9 @@ public:
     User(Session session, char* user_id);
 
     void get_id();
+
+private:
+    void* user;
 };
 
 class FetchedUser : public User {
@@ -14,11 +17,17 @@ public:
     void get_picture_id();
 
     void image();
+
+private:
+    void* fetched_user;
 };
 
 class PlaylistCreator : public User {
 public:
     void get_name();
+
+private:
+    void* playlist_creator;
 };
 
 class LoggedInUser : public FetchedUser {
@@ -30,6 +39,9 @@ public:
     void playlists();
     void playlist_and_favorite_playlists();
     void create_playlist();
+
+private:
+    void* logged_in_user;
 };
 
 class Favorites {
@@ -51,4 +63,7 @@ public:
     void playlists();
     void tracks();
     void videos();
+
+private:
+    void* favorites;
 };

@@ -24,6 +24,9 @@ public:
     void items();
     void image();
     void wide_image();
+
+private:
+    void* playlist;
 };
 
 class UserPlaylist : public Playlist {
@@ -34,4 +37,7 @@ public:
     void remove_by_index();
     void remove_by_indeces();
     void remove_by_id();
+
+private:
+    void* user_playlist;
 };

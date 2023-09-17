@@ -7,4 +7,7 @@ public:
     void get_text();
     void get_subtitles();
     void get_right_to_left();
+
+private:
+    void* lyrics;
 };

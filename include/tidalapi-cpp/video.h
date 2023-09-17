@@ -5,4 +5,7 @@ public:
 
     void get_url();
     void image();
+
+private:
+    void* video;
 };

@@ -17,4 +17,7 @@ public:
     void get_genres();
     void items();
     void image();
+
+private:
+    void* genre;
 };

@@ -6,4 +6,7 @@ public:
     void get_manifest_mime_type();
     void get_manifest_hash();
     void get_manifest();
+
+private:
+    void* stream;
 };

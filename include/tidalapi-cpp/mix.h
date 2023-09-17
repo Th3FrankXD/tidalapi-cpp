@@ -15,4 +15,7 @@ public:
     void get();
     void items();
     void image();
+
+private:
+    void* mix;
 };

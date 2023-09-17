@@ -1,13 +1,17 @@
 #pragma once
 
 #include "tidalapi-cpp.h"
+#include "quality.h"
 
 class Config {
 public:
-    Config(tidalapi::QUALITY quality=tidalapi::QUALITY::HI_RES, tidalapi::VIDEO_QUALITY video_quality=tidalapi::VIDEO_QUALITY::HIGH, int item_limit=1000, bool alac=true);
+    Config(int quality, int video_quality, int item_limit, bool alac);
 
     void get_quality();
     void get_video_quality();
     void get_item_limit();
     void get_alac();
+
+private:
+    void* config;
 };

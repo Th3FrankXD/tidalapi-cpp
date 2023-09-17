@@ -34,4 +34,7 @@ public:
     void page();
     void similar();
     void review();
+
+private:
+    void* album;
 };

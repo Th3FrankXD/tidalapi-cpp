@@ -13,4 +13,7 @@ public:
     void lyrics();
     void get_track_radio();
     void stream();
+
+private:
+    void* track;
 };
