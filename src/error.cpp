@@ -1,11 +1,11 @@
 #include "error.h"
 
-static std::tuple<int, char*> error;
+static std::tuple<int, std::string> error;
 
-std::tuple<int, char*> get_error() {
+std::tuple<int, std::string> get_error() {
     return(error);
 }
 
-void set_error(int error_code, char* message) {
-    error = std::tuple(error_code, message);
+void set_error(int error_code, std::string message) {
+    error = std::tuple(error_code, message.c_str());
 }

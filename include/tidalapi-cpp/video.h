@@ -1,11 +1,15 @@
-class Video {
-public:
-    void get_release_date();
-    void get_video_quality();
+#pragma once
 
-    void get_url();
-    void image();
+namespace tidalapi {
+    class Video {
+    public:
+        void get_release_date();
+        void get_video_quality();
 
-private:
-    void* video;
-};
+        void get_url();
+        void image();
+
+    private:
+        void* video;
+    };
+}
