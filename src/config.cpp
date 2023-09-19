@@ -9,3 +9,7 @@ tidalapi::Config::Config(QUALITY quality=QUALITY::HIGH, VIDEO_QUALITY video_qual
     py::module_ tidal = get_tidal();
     handle = pyobject_to_heap(tidal.attr("Config")(quality_to_pyobject(quality), quality_to_pyobject(video_quality), item_limit, alac));
 }
+
+tidalapi::Config::~Config() {
+    delete get_pyobject(handle);
+}

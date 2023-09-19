@@ -3,6 +3,8 @@
 namespace tidalapi {
     class Lyrics {
     public:
+        ~Lyrics();
+
         void get_track_id();
         void get_provider();
         void get_provider_track_id();
@@ -11,7 +13,6 @@ namespace tidalapi {
         void get_subtitles();
         void get_right_to_left();
 
-    private:
-        void* lyrics;
+        const void* handle;
     };
 }

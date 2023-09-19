@@ -11,5 +11,6 @@ include_directories(deps/include headers include/tidalapi-cpp)
 # Add source files
 file(GLOB_RECURSE SOURCES src/*.cpp)
 add_subdirectory(deps/libs/pybind11)
-add_library(tidalapi-cpp SHARED ${SOURCES})
+add_library(tidalapi-cpp STATIC ${SOURCES})
+set_property(TARGET tidalapi-cpp PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(tidalapi-cpp PUBLIC pybind11::embed)

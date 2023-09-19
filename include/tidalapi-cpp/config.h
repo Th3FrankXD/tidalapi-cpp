@@ -6,6 +6,7 @@ namespace tidalapi {
     class Config {
     public:
         Config(QUALITY quality, VIDEO_QUALITY video_quality, int item_limit, bool alac);
+        ~Config();
 
         void get_quality();
         void get_video_quality();

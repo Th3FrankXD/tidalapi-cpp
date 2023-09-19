@@ -6,6 +6,7 @@ namespace tidalapi {
     class Media {
     public:
         Media(Session session);
+        ~Media();
 
         void get_id();
         void get_name();
@@ -23,7 +24,6 @@ namespace tidalapi {
         void get_album();
         void get_type();
 
-    private:
-        void* media;
+        const void* handle;
     };
 }

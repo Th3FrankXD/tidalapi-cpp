@@ -4,12 +4,14 @@
 namespace tidalapi {
     class Login {
     public:
-        int expires_in();
-        std::string get_user_code();
-        std::string get_verification_uri();
-        std::string get_verification_uri_complete();
+        ~Login();
 
-        bool done();
+        const int expires_in();
+        const std::string get_user_code();
+        const std::string get_verification_uri();
+        const std::string get_verification_uri_complete();
+
+        const bool done();
 
         const void* handle;
         const void* result_handle;

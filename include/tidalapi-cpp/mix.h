@@ -6,6 +6,7 @@ namespace tidalapi {
     class Mix {
     public:
         Mix(Session session, char* mix_id);
+        ~Mix();
 
         void get_id();
         void get_title();
@@ -19,7 +20,6 @@ namespace tidalapi {
         void items();
         void image();
 
-    private:
-        void* mix;
+        const void* handle;
     };
 }

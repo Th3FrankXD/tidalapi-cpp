@@ -5,6 +5,7 @@ namespace tidalapi {
     class Album {
     public:
         Album(Session session, char* album_id);
+        ~Album();
 
         void get_id();
         void get_video_cover();
@@ -35,7 +36,6 @@ namespace tidalapi {
         void similar();
         void review();
 
-    private:
-        void* album;
+        const void* handle;
     };
 }

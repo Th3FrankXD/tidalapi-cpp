@@ -4,19 +4,19 @@
 #include "error.h"
 #include <format>
 
-static std::unordered_map<std::string, tidalapi::QUALITY> quality_map{
+static const std::unordered_map<std::string, tidalapi::QUALITY> quality_map{
                 {"LOW", tidalapi::QUALITY::LOW},
                 {"HIGH", tidalapi::QUALITY::HIGH},
                 {"LOSSLESS", tidalapi::QUALITY::LOSSLESS},
                 {"HI_RES", tidalapi::QUALITY::HI_RES},
                 {"HI_RES_LOSSLESS", tidalapi::QUALITY::HI_RES_LOSSLESS}};
 
-static std::unordered_map<std::string, tidalapi::VIDEO_QUALITY> video_quality_map{
+static const std::unordered_map<std::string, tidalapi::VIDEO_QUALITY> video_quality_map{
                 {"LOW", tidalapi::VIDEO_QUALITY::LOW},
                 {"MEDIUM", tidalapi::VIDEO_QUALITY::MEDIUM},
                 {"HIGH", tidalapi::VIDEO_QUALITY::HIGH}};
 
-py::module_ get_tidal() {
+const py::module_ get_tidal() {
     return py::module_::import("tidalapi");
 }
 
@@ -26,11 +26,11 @@ const void* pyobject_to_heap(py::object object) {
     return (const void*)temp;
 }
 
-py::object* get_pyobject(const void* handle) {
+const py::object* get_pyobject(const void* handle) {
     return (py::object*)handle;
 }
 
-tidalapi::QUALITY string_to_quality(std::string quality) {
+const tidalapi::QUALITY string_to_quality(std::string quality) {
     if (auto search = quality_map.find(quality); search != quality_map.end()) {
         set_error(0, "");
         return quality_map.find(quality)->second;
@@ -40,7 +40,7 @@ tidalapi::QUALITY string_to_quality(std::string quality) {
     }
 }
 
-tidalapi::VIDEO_QUALITY string_to_video_quality(std::string quality) {
+const tidalapi::VIDEO_QUALITY string_to_video_quality(std::string quality) {
     if (auto search = video_quality_map.find(quality); search != video_quality_map.end()) {
         set_error(0, "");
         return video_quality_map.find(quality)->second;
@@ -50,7 +50,7 @@ tidalapi::VIDEO_QUALITY string_to_video_quality(std::string quality) {
     }
 }
 
-py::object quality_to_pyobject(tidalapi::QUALITY quality) {
+const py::object quality_to_pyobject(tidalapi::QUALITY quality) {
     py::module_ tidal = get_tidal();
     switch (quality) {
         case tidalapi::QUALITY::LOW:
@@ -68,7 +68,7 @@ py::object quality_to_pyobject(tidalapi::QUALITY quality) {
     };
 }
 
-py::object quality_to_pyobject(tidalapi::VIDEO_QUALITY quality) {
+const py::object quality_to_pyobject(tidalapi::VIDEO_QUALITY quality) {
     py::module_ tidal = get_tidal();
     switch (quality) {
         case tidalapi::VIDEO_QUALITY::LOW:

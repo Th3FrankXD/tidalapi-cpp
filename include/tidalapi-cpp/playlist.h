@@ -6,6 +6,7 @@ namespace tidalapi {
     class Playlist {
     public:
         Playlist(Session session, char* playlist_id);
+        ~Playlist();
 
         void get_id();
         void get_name();
@@ -28,12 +29,13 @@ namespace tidalapi {
         void image();
         void wide_image();
 
-    private:
-        void* playlist;
+        const void* handle;
     };
 
     class UserPlaylist : public Playlist {
     public:
+        ~UserPlaylist();
+
         void edit();
         void destroy();
         void add();
@@ -41,7 +43,6 @@ namespace tidalapi {
         void remove_by_indeces();
         void remove_by_id();
 
-    private:
-        void* user_playlist;
+        const void* handle;
     };
 }

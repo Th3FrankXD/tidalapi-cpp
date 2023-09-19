@@ -5,64 +5,72 @@
 namespace tidalapi {
     class Page {
     public:
+        ~Page();
+
         void get_title();
         void get_categories();
 
         void next();
         void get();
 
-    private:
-        void* page;
+        const void* handle;
     };
 
     class PageCategory : public Page {
     public:
+        ~PageCategory();
+
         void get_type();
         void get_title();
         void get_description();
 
         void show_more();
 
-    private:
-        void* page_category;
+        const void* handle;
     };
 
     class FeaturedItems : public PageCategory {
     public:
+        ~FeaturedItems();
+
         void get_items();
 
-    private:
-        void* featured_items;
+        const void* handle;
     };
 
     class PageLinks : public PageCategory {
     public:
+        ~PageLinks();
+
         void get_items();
 
-    private:
-        void* page_links;
+        const void* handle;
     };
 
     class ItemList : public PageCategory {
     public:
+        ~ItemList();
+
         void get_items();
 
-    private:
-        void* item_list;
+        const void* handle;
     };
 
     class LinkList : public PageCategory {
     public:
+        ~LinkList();
+
         void get_items();
         void get_title();
         void get_description();
 
-    private:
-        void* link_list;
+        const void* handle;
     };
 
     class PageLink {
     public:
+        ~PageLink();
+
         void get_header();
         void get_short_header();
         void get_short_sub_header();
@@ -72,17 +80,17 @@ namespace tidalapi {
 
         void get();
 
-    private:
-        void* page_link;
+        const void* handle;
     };
 
     class TextBlock {
     public:
+        ~TextBlock();
+
         void get_text();
         void get_icon();
         void get_items();
 
-    private:
-        void* text_block;
+        const void* handle;
     };
 }

@@ -6,6 +6,7 @@ namespace tidalapi {
     class Artist {
     public:
         Artist(Session session, char* artist_id);
+        ~Artist();
 
         void get_id();
         void get_name();
@@ -24,7 +25,6 @@ namespace tidalapi {
         void image();
         void page();
 
-    private:
-        void* artist;
+        const void* handle;
     };
 }

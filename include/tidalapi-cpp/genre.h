@@ -7,6 +7,7 @@ namespace tidalapi {
     class Genre {
     public:
         Genre(Session session);
+        ~Genre();
 
         void get_name();
         void get_path();
@@ -20,7 +21,6 @@ namespace tidalapi {
         void items();
         void image();
 
-    private:
-        void* genre;
+        const void* handle;
     };
 }

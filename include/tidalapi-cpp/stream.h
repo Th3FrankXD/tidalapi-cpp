@@ -3,6 +3,8 @@
 namespace tidalapi {
     class Stream {
     public:
+        ~Stream();
+
         void get_track_id();
         void get_audio_mode();
         void get_audio_quality();
@@ -10,7 +12,6 @@ namespace tidalapi {
         void get_manifest_hash();
         void get_manifest();
 
-    private:
-        void* stream;
+        const void* handle;
     };
 }

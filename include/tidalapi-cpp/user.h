@@ -6,35 +6,39 @@ namespace tidalapi {
     class User {
     public:
         User(Session session, char* user_id);
+        ~User();
 
         void get_id();
 
-    private:
-        void* user;
+        const void* handle;
     };
 
     class FetchedUser : public User {
     public:
+        ~FetchedUser();
+
         void get_first_name();
         void get_last_name();
         void get_picture_id();
 
         void image();
 
-    private:
-        void* fetched_user;
+        const void* handle;
     };
 
     class PlaylistCreator : public User {
     public:
+        ~PlaylistCreator();
+
         void get_name();
 
-    private:
-        void* playlist_creator;
+        const void* handle;
     };
 
     class LoggedInUser : public FetchedUser {
     public:
+        ~LoggedInUser();
+
         void get_username();
         void get_email();
         void get_profile_metadata();
@@ -43,13 +47,13 @@ namespace tidalapi {
         void playlist_and_favorite_playlists();
         void create_playlist();
 
-    private:
-        void* logged_in_user;
+        const void* handle;
     };
 
     class Favorites {
     public:
         Favorites(Session session, char* user_id);
+        ~Favorites();
 
         void add_album();
         void add_artist();
@@ -67,7 +71,6 @@ namespace tidalapi {
         void tracks();
         void videos();
 
-    private:
-        void* favorites;
+        const void* handle;
     };
 }

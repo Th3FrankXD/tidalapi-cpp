@@ -3,6 +3,8 @@
 namespace tidalapi {
     class Track {
     public:
+        ~Track();
+
         void get_replay_gain();
         void get_peak();
         void get_isrc();
@@ -17,7 +19,6 @@ namespace tidalapi {
         void get_track_radio();
         void stream();
 
-    private:
-        void* track;
+        const void* handle;
     };
 }

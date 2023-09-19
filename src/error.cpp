@@ -2,7 +2,7 @@
 
 static std::tuple<int, std::string> error;
 
-std::tuple<int, std::string> get_error() {
+const std::tuple<int, std::string> get_error() {
     return(error);
 }
 

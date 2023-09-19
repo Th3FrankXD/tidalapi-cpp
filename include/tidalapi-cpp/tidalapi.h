@@ -5,6 +5,7 @@
 #include "session.h"
 
 namespace tidalapi {
-    int init();
+    void init();
+    void close();
     std::tuple<int, std::string> error_status();
 }
