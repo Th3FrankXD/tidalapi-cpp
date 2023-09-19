@@ -5,7 +5,6 @@
 namespace tidalapi {
     class Artist {
     public:
-        Artist(Session session, char* artist_id);
         ~Artist();
 
         void get_id();

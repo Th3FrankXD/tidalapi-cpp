@@ -3,6 +3,7 @@
 #include "config.h"
 #include "quality.h"
 #include "login.h"
+#include "user.h"
 
 namespace tidalapi {
     class Session {
@@ -10,22 +11,24 @@ namespace tidalapi {
         Session(Config config);
         ~Session();
 
-        char* get_session_id();
+        const std::string get_session_id();
 
         const std::string get_access_token();
         const std::string get_expiry_time();
         const std::string get_refresh_token();
         const std::string get_token_type();
 
-        char* refresh_token();
+        const bool token_refresh(std::string refresh_token);
 
-        void load_session();
+        const bool load_session(std::string session_id, std::string country_code="", int user_id=-1);
         void load_oauth_session();
         void login();
         const tidalapi::Login login_oauth();
         const bool check_login();
 
-        void get_user();
+        const tidalapi::User get_current_user();
+
+        const tidalapi::User get_user(int user_id);
 
         void playlist();
         void track();
@@ -50,7 +53,7 @@ namespace tidalapi {
         void set_quality();
         void set_video_quality();
 
-        void get_country_code();
+        const std::string get_country_code();
 
         const void* handle;
     };

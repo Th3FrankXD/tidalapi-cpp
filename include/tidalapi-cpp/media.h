@@ -5,7 +5,6 @@
 namespace tidalapi {
     class Media {
     public:
-        Media(Session session);
         ~Media();
 
         void get_id();

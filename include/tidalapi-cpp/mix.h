@@ -5,7 +5,6 @@
 namespace tidalapi {
     class Mix {
     public:
-        Mix(Session session, char* mix_id);
         ~Mix();
 
         void get_id();

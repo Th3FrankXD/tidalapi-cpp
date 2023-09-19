@@ -5,7 +5,6 @@
 namespace tidalapi {
     class Playlist {
     public:
-        Playlist(Session session, char* playlist_id);
         ~Playlist();
 
         void get_id();

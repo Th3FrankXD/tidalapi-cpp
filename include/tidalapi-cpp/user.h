@@ -1,14 +1,11 @@
 #pragma once
 
-#include "session.h"
-
 namespace tidalapi {
     class User {
     public:
-        User(Session session, char* user_id);
         ~User();
 
-        void get_id();
+        const int get_id() const;
 
         const void* handle;
     };
@@ -52,7 +49,6 @@ namespace tidalapi {
 
     class Favorites {
     public:
-        Favorites(Session session, char* user_id);
         ~Favorites();
 
         void add_album();

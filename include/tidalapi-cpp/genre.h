@@ -6,7 +6,6 @@
 namespace tidalapi {
     class Genre {
     public:
-        Genre(Session session);
         ~Genre();
 
         void get_name();

@@ -4,7 +4,6 @@
 namespace tidalapi {
     class Album {
     public:
-        Album(Session session, char* album_id);
         ~Album();
 
         void get_id();
