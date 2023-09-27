@@ -9,7 +9,6 @@ namespace tidalapi {
     class Session {
     public:
         Session(Config config);
-        ~Session();
 
         const std::string get_session_id();
 
@@ -22,7 +21,7 @@ namespace tidalapi {
 
         const bool load_session(std::string session_id, std::string country_code="", int user_id=-1);
         void load_oauth_session();
-        void login();
+        const bool login(std::string username, std::string password);
         const tidalapi::Login login_oauth();
         const bool check_login();
 

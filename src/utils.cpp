@@ -20,14 +20,25 @@ const py::module_ get_tidal() {
     return py::module_::import("tidalapi");
 }
 
+const void* pyhandle_to_heap(py::handle handle) {
+    py::handle* ptr = new py::handle();
+    handle.inc_ref();
+    *ptr = handle;
+    return (const void*)ptr;
+}
+
 const void* pyobject_to_heap(py::object object) {
-    py::object* temp = new py::object;
-    *temp = object;
-    return (const void*)temp;
+    py::object* ptr = new py::object;
+    *ptr = py::object(object);
+    return (const void*)ptr;
 }
 
 const py::object* get_pyobject(const void* handle) {
     return (py::object*)handle;
+}
+
+const std::string get_class_name(const void* handle) {
+    return get_pyobject(handle)->attr("__class__").attr("__name__").cast<std::string>();
 }
 
 const tidalapi::QUALITY string_to_quality(std::string quality) {

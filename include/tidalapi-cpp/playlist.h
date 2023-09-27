@@ -1,14 +1,14 @@
 #pragma once
 
-#include "session.h"
+#include <string>
+#include <memory>
 
 namespace tidalapi {
     class Playlist {
     public:
-        ~Playlist();
-
+        // Playlist
         void get_id();
-        void get_name();
+        const std::string get_name();
         void get_num_tracks();
         void get_num_videos();
         void get_creator();
@@ -22,19 +22,12 @@ namespace tidalapi {
         void get_promoted_artists();
         void get_last_item_added_at();
         void get_user_date_added();
-
         void tracks();
         void items();
         void image();
         void wide_image();
 
-        const void* handle;
-    };
-
-    class UserPlaylist : public Playlist {
-    public:
-        ~UserPlaylist();
-
+        // UserPlaylist
         void edit();
         void destroy();
         void add();
@@ -44,4 +37,18 @@ namespace tidalapi {
 
         const void* handle;
     };
+
+    // class UserPlaylist : public Playlist {
+    // public:
+    //     ~UserPlaylist();
+
+    //     void edit();
+    //     void destroy();
+    //     void add();
+    //     void remove_by_index();
+    //     void remove_by_indeces();
+    //     void remove_by_id();
+
+    //     const void* handle;
+    // };
 }

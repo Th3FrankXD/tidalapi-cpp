@@ -1,46 +1,29 @@
 #pragma once
 
+#include <string>
+#include <vector>
+#include "playlist.h"
+
 namespace tidalapi {
     class User {
     public:
         ~User();
-
+        // User
         const int get_id() const;
 
-        const void* handle;
-    };
+        // FetchedUser : User
+        const std::string get_first_name();
+        const std::string get_last_name();
+        const std::string image(int dimensions);
 
-    class FetchedUser : public User {
-    public:
-        ~FetchedUser();
+        // playlistCreator : User
+        const std::string get_name();
 
-        void get_first_name();
-        void get_last_name();
-        void get_picture_id();
-
-        void image();
-
-        const void* handle;
-    };
-
-    class PlaylistCreator : public User {
-    public:
-        ~PlaylistCreator();
-
-        void get_name();
-
-        const void* handle;
-    };
-
-    class LoggedInUser : public FetchedUser {
-    public:
-        ~LoggedInUser();
-
-        void get_username();
-        void get_email();
-        void get_profile_metadata();
-
-        void playlists();
+        // LoggedInUser : FetchedUser
+        const std::string get_username();
+        const std::string get_email();
+        const std::string get_profile_metadata();
+        std::vector<tidalapi::Playlist> playlists();
         void playlist_and_favorite_playlists();
         void create_playlist();
 
@@ -62,7 +45,7 @@ namespace tidalapi {
         void remove_track();
         void remove_video();
         void artists();
-        void almbums();
+        void albums();
         void playlists();
         void tracks();
         void videos();

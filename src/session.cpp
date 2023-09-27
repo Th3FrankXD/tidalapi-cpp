@@ -12,10 +12,6 @@ tidalapi::Session::Session(Config config) {
     handle = pyobject_to_heap(tidal.attr("Session")(*get_pyobject(config.handle)));
 }
 
-tidalapi::Session::~Session() {
-    delete get_pyobject(handle);
-}
-
 const std::string tidalapi::Session::get_session_id() {
     return get_pyobject(handle)->attr("session_id").cast<std::string>();
 }
@@ -31,6 +27,10 @@ const tidalapi::Login tidalapi::Session::login_oauth() {
     login.handle = pyobject_to_heap(status[0]);
     login.result_handle = pyobject_to_heap(status[1]);
     return login;
+}
+
+const bool tidalapi::Session::login(std::string username, std::string password) {
+    return get_pyobject(handle)->attr("login")(username, password).cast<bool>();
 }
 
 const bool tidalapi::Session::load_session(std::string session_id, std::string country_code, int user_id) {
